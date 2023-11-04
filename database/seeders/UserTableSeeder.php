@@ -21,6 +21,7 @@ class UserTableSeeder extends Seeder
         $user->password = 'password';
         $user->save();
 
-        User::factory()->count(10)->create();
+        User::factory()->count(20)->has(Post::factory()->count(2))
+        ->create();
     }
 }

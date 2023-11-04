@@ -20,6 +20,5 @@ class PostTableSeeder extends Seeder
         $post->user_id=1;
         $post->save();
 
-        Post::factory()->count(10)->create();
     }
 }
