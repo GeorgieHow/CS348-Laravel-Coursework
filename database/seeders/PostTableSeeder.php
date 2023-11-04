@@ -19,5 +19,7 @@ class PostTableSeeder extends Seeder
         $post->post_text='This is the text of the post. Blah blah blah.';
         $post->user_id=1;
         $post->save();
+
+        Post::factory()->count(10)->create();
     }
 }

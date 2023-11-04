@@ -18,6 +18,9 @@ class PostFactory extends Factory
     {
         return [
             //
+            'post_title' => fake() -> words(2, true),
+            'post_text' => fake() -> paragraph(4, true),
+            'user_id' => 1,
         ];
     }
 }
