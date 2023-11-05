@@ -14,6 +14,7 @@ class PostTableSeeder extends Seeder
     public function run(): void
     {
         //
+        //Example Post
         $post = new Post;
         $post->post_title='This is the post title.';
         $post->post_text='This is the text of the post. Blah blah blah.';

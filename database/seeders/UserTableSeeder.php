@@ -15,12 +15,14 @@ class UserTableSeeder extends Seeder
     public function run(): void
     {
         //
+        //Example User
         $user = new User;
         $user->name = 'FirstUser';
         $user->email = 'firstuser@example.com';
         $user->password = 'password';
         $user->save();
 
+        //Generates 20 random users, then generates 2 random posts linked to them
         User::factory()->count(20)->has(Post::factory()->count(2))
         ->create();
     }
