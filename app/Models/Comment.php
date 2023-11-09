@@ -9,8 +9,11 @@ class Comment extends Model
 {
     use HasFactory;
 
-    public function comments(){
+    public function users(){
         return $this->hasOne(User::class);
+    }
+
+    public function posts(){
         return $this->hasOne(Post::class);
     }
 }

@@ -12,6 +12,10 @@ class Post extends Model
     public function users()
     {   
         return $this->hasOne(User::class);
+    }
+    
+    public function comments()
+    {
         return $this->hasMany(Comment::class);
     }
 }
