@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Redirects to take you straight to login in page
+Route::redirect('/','/login');
+
 Route::get('/test', function () {
     return 'Hello';
 });
