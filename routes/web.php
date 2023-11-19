@@ -21,6 +21,10 @@ Route::get('/', function () {
 //Redirects to take you straight to login in page
 Route::redirect('/','/login');
 
+Route::get('/startpage', function () {
+    return view('startpage');
+});
+
 Route::get('/test', function () {
     return 'Hello';
 });
