@@ -21,8 +21,8 @@ Route::get('/', function () {
 //Redirects to take you straight to login in page
 Route::redirect('/','/login');
 
-Route::get('/startpage', function () {
-    return view('startpage');
+Route::get('/startpage/{name}', function ($name) {
+    return view('startpage', ['name' => $name]);
 });
 
 Route::get('/test', function () {
