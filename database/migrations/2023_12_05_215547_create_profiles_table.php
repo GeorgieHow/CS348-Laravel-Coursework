@@ -14,7 +14,13 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->text('profile_bio');
+            $table->bigInteger('user_id')->unsigned();
+
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onDelete('cascade')->onUpdate('cascade');
+            
             $table->timestamps();
+
         });
     }
 

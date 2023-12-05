@@ -16,8 +16,9 @@ class ProfileTableSeeder extends Seeder
         //Example Profile
         $profile = new Profile;
         $profile->profile_bio = "This is a profile bio.";
+        $profile->user_id = 1;
         $profile->save();
 
-        Profile::factory() -> count(20) -> create();
+        //Profile::factory() -> count(20) -> create();
     }
 }
