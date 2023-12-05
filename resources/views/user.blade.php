@@ -1,9 +1,15 @@
-@if($user)
-    <p>
-        Hello, you just got to the profile page for {{ $user }}!
-    </p>
-@else
-    <p>
-        No user page found.
-    <p>
-@endif
+@extends('layouts.app')
+
+@section('title', 'Users')
+
+@section('content')
+    @if($user)
+        <p>
+            Hello, you just got to the profile page for {{ $user }}!
+        </p>
+    @else
+        <p>
+            No user page found.
+        <p>
+    @endif
+@endsection
