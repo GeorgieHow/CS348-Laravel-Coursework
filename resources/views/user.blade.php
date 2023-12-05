@@ -4,11 +4,11 @@
 
 @section('content')
     @if($user)
-        <p>
+        <p style="color:#ffffff;">
             Hello, you just got to the profile page for {{ $user }}!
         </p>
     @else
-        <p>
+        <p style="color:#ffffff;">
             No user page found.
         <p>
     @endif
