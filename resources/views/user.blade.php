@@ -8,7 +8,7 @@
             Hello, you just got to the profile page for {{ $user }}!
         </p>
     @else
-        <p style="color:#ffffff;">
+    <p style="color:#ffffff;">
             No user page found.
         <p>
     @endif
