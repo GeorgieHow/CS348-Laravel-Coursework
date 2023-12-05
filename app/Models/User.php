@@ -21,6 +21,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Comment::class);
     }
 
+    public function profiles(){
+        return $this->hasOne(Profile::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
