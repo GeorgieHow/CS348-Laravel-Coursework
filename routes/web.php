@@ -18,7 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Redirects to take you straight to login in page
+//Route to Users in database
+Route::get('/user/{user}', function ($user) {
+    return view('user', ['user' => $user]);
+});
 
 Route::get('/startpage/{name}', function ($name) {
     return view('startpage', ['name' => $name]);
