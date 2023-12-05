@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Profile;
 
 class UserTableSeeder extends Seeder
 {
@@ -23,7 +24,9 @@ class UserTableSeeder extends Seeder
         $user->save();
 
         //Generates 20 random users, then generates 2 random posts linked to them
-        User::factory()->count(20)->has(Post::factory()->count(2))
+        User::factory()->count(20)
+        ->has(Profile::factory())
+        ->has(Post::factory()->count(2))
         ->create();
     }
 }
