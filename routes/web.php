@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::get('/', function () {
 Route::get('/user/{user}', function ($user) {
     return view('user', ['user' => $user]);
 });
+
+Route::get('/users', [UserController::class, 'index']);
 
 Route::get('/startpage/{name}', function ($name) {
     return view('startpage', ['name' => $name]);
