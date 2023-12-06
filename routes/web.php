@@ -24,7 +24,10 @@ Route::get('/user/{user}', function ($user) {
     return view('user', ['user' => $user]);
 });
 
+//Route to list of users
 Route::get('/users', [UserController::class, 'index']);
+
+Route::get('/users/{id}', [UserController::class, 'show']);
 
 Route::get('/startpage/{name}', function ($name) {
     return view('startpage', ['name' => $name]);
