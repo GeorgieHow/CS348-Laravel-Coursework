@@ -8,7 +8,7 @@
     </p>
     <ul style = "color:#ffffff;">
         @foreach($users as $user)
-            <li>{{ $user ->name }}</li>
+            <li><a href="/users/{{ $user->id }}">{{ $user ->name }}</a></li>
         @endforeach
     </ul>
 @endsection
