@@ -3,7 +3,8 @@
 @section('title', 'User Details')
 
 @section('content')
-    <p style = "color:#ffffff;">
-        {{$user->name}}
-    </p>
+    <ul style = "color:#ffffff;">
+        <li>Name: {{$user->name}} </li>
+        <li>Email: {{$user->email}} </li>
+    </ul>
 @endsection
