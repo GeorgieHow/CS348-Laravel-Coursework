@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,11 @@ Route::get('/users', [UserController::class, 'index']);
 
 Route::get('/users/{id}', [UserController::class, 'show'])
     ->name('users.show');
+
+//Route to list of posts
+Route::get('/posts', [PostController::class,'index']);
+
+
 
 Route::get('/startpage/{name}', function ($name) {
     return view('startpage', ['name' => $name]);
