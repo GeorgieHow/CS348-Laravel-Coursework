@@ -6,6 +6,10 @@
     <p style = "color:#ffffff;">
         Posts
     </p>
+    <p style = "color:#ffffff;">
+        <a href = "{{ route('posts.create')}}"> Create Post </a>
+    </p>
+
     <ul style = "color:#ffffff;">
         @foreach($posts as $post)
             <li>
