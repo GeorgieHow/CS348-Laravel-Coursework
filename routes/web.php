@@ -21,9 +21,10 @@ Route::get('/', function () {
 });
 
 //Route to Users in database
-Route::get('/user/{user}', function ($user) {
+/*Route::get('/user/{user}', function ($user) {
     return view('user', ['user' => $user]);
 });
+*/
 
 //Route to list of users
 Route::get('/users', [UserController::class, 'index']);
@@ -34,7 +35,8 @@ Route::get('/users/{id}', [UserController::class, 'show'])
 //Route to list of posts
 Route::get('/posts', [PostController::class,'index']);
 
-
+Route::get('/posts/{id}', [PostController::class, 'show'])
+    ->name('posts.show');
 
 Route::get('/startpage/{name}', function ($name) {
     return view('startpage', ['name' => $name]);

@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index()
     {
         
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return view ('posts.index', ['posts' => $posts]);
     }
 
@@ -38,7 +38,10 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        //
+
+        $post = Post::findOrFail($id);
+        //dd($post);
+        return view ('posts.show', ['post' => $post]);
     }
 
     /**
