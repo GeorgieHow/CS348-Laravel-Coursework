@@ -19,5 +19,6 @@
         @endforeach
     </ul>
 
+    <!-- Creates the pagination at the bottom of the page -->
     {{ $posts->links() }}
 @endsection
