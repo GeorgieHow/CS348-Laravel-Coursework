@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,13 @@ Route::get('/', function () {
 });
 */
 
-//Route to list of users
+//Route to user related content
 Route::get('/users', [UserController::class, 'index']);
 
 Route::get('/users/{id}', [UserController::class, 'show'])
     ->name('users.show');
 
-//Route to list of posts
+//Route to post related content
 Route::get('/posts', [PostController::class,'index']) 
     ->name('posts.index');
 
@@ -44,6 +45,11 @@ Route::post('/posts', [PostController::class, 'store'])
 
 Route::get('/posts/{id}', [PostController::class, 'show'])
     ->name('posts.show');
+
+//Route to comment related content
+
+Route::get('comments/create', [CommentController::class, 'create'])
+    ->name('comments.create');
 
 //Testing
 Route::get('/startpage/{name}', function ($name) {

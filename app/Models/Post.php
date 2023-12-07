@@ -9,9 +9,9 @@ class Post extends Model
 {
     use HasFactory;
 
-    public function users()
+    public function user()
     {   
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
     
     public function comments()
@@ -21,6 +21,6 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Keeper::class);
+        return $this->belongsToMany(Tag::class);
     }
 }

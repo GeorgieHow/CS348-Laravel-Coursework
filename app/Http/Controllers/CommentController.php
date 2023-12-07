@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        
-        $posts = Post::paginate(10);
-        return view ('posts.index', ['posts' => $posts]);
+        //
     }
 
     /**
@@ -23,7 +20,7 @@ class PostController extends Controller
     public function create()
     {
         
-        return view ('posts.create');
+        return view ('comments.create');
     }
 
     /**
@@ -31,22 +28,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-    
-        $validatedData = $request->validate([
-            'post_title' => 'required|max:255',
-            'post_text' => 'required|max:255',
-        ]);
-
-        $newPost = new Post;
-        $newPost-> post_title = $validatedData['post_title'];
-        $newPost-> post_text = $validatedData['post_text'];
-        $newPost-> user_id = $request -> user()->id;
-        $newPost-> created_at = now();
-        $newPost->save();
-
-        session()->flash('message', 'Post was successfully created.');
-        return redirect()->route('posts.index');
-        //dd($validatedData);
+        //
     }
 
     /**
@@ -54,10 +36,7 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-
-        $post = Post::findOrFail($id);
-        //dd($post);
-        return view ('posts.show', ['post' => $post]);
+        //
     }
 
     /**
