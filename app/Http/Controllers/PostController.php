@@ -38,7 +38,16 @@ class PostController extends Controller
             'user_id' => 'required|numeric',
         ]);
 
-        dd($validatedData);
+        $newPost = new Post;
+        $newPost-> post_title = $validatedData['post_title'];
+        $newPost-> post_text = $validatedData['post_text'];
+        $newPost-> user_id = $request -> user()->id;
+        $newPost-> created_at = now();
+        $newPost->save();
+
+        session()->flash('message', 'Post was successfully created.');
+        return redirect()->route('posts.index');
+        //dd($validatedData);
     }
 
     /**
