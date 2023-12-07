@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <div class="min-h-screen bg-gray-100 dark:bg-gray-900" style ="color:#ffffff;">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -27,6 +27,18 @@
                         </p>
                     </div>
                 </header>
+            @endif
+
+            <!-- Error checking for forms - very simple -->
+            @if ($errors->any())
+            <div>
+                Errors:
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
 
             <!-- Page Content -->
