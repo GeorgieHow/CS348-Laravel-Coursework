@@ -11,8 +11,6 @@
                 name="post_title" value="{{ old('post_title')}}"/></li>
             <li>Post Text: <input style="color:black;" type="text" 
                 name="post_text" value="{{ old('post_text')}}"/></li>
-            <li>User ID: <input style="color:black;" type="text" 
-                name="user_id" value="{{ old('user_id')}}"/></li>
             <input type = "submit" value = "Submit"/>
 
         </ul>
