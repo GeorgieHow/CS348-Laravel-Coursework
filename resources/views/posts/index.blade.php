@@ -19,7 +19,7 @@
                     [{{$post ->created_at}}]
                 </a>
             </li>
-            <br></br>
+            <br/>
         @endforeach
     </ul>
 

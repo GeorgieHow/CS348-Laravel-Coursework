@@ -9,7 +9,16 @@
             <li>Posted by: {{$post->user->name }} </li>
         </a>
         <li>Content: {{$post->post_text}} </li>
-        <li>[Created at {{$post ->created_at}}] </li>
+        <li>[Created at {{$post->created_at}}] </li>
+        <br/>
+    </ul>
+    <ul>
+        @foreach($allComments=$post->comments as $comment)
+            <li>{{$comment->user_id}}: {{$comment->comment_text}}</li>
+            <br/>
+        @endforeach
+    </ul>
+    <ul>
         <li><a href="{{route('comments.create')}}" style="color:white;">
             Comment</a></li>
         <li><a href="{{route('posts.index')}}" style="color:white;">
