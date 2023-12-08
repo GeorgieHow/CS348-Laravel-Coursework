@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Post Creation')
+@section('title', 'Comment Creation')
 
 @section('content')
 
-    <form method="POST" action = "{{route('posts.store')}}">
+    <form method="POST" action = "{{route('comment.store')}}">
         @csrf
         <ul style = "color:#ffffff;">
             <li>Comment Text: <input style="color:black;" type="text" 
-                name="post_title" value="{{ old('post_title')}}"/></li>
+                name="comment_text" value="{{ old('comment_text')}}"/></li>
             <input type = "submit" value = "Submit"/>
 
         </ul>

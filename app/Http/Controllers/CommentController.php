@@ -28,7 +28,12 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $validatedData = $request->validate([
+            'comment_text' => 'required|max:255',
+        ]);
+
+        dd($validatedData);
     }
 
     /**

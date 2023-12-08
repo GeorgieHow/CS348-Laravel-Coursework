@@ -51,6 +51,9 @@ Route::get('/posts/{id}', [PostController::class, 'show'])
 Route::get('comments/create', [CommentController::class, 'create'])
     ->name('comments.create');
 
+Route::post('/comments', [CommentController::class, 'store'])
+    ->name('comment.store');
+
 //Testing
 Route::get('/startpage/{name}', function ($name) {
     return view('startpage', ['name' => $name]);
