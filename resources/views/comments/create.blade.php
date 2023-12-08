@@ -13,7 +13,7 @@
             <input type = "submit" value = "Submit"/>
 
         </ul>
-        <a href="{{url()->previous()}}" style="color:white;">Cancel</a>
+        <a href="{{route('posts.show', ['id' => $post])}}" style="color:white;">Cancel</a>
     </form>
 
 @endsection

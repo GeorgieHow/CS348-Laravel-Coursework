@@ -42,6 +42,9 @@ class CommentController extends Controller
         $newComment-> user_id = $request->user()->id;
         $newComment-> created_at = now();
         $newComment->save();
+
+        session()->flash('message', 'Comment was successfully created.');
+        return redirect()->route('posts.show', ['id' => $id]);
         //dd($validatedData);
     }
 
