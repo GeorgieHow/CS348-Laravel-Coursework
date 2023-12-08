@@ -48,11 +48,14 @@ Route::get('/posts/{id}', [PostController::class, 'show'])
 
 //Route to comment related content
 
+Route::get('/comments', [CommentController::class, 'index'])
+    ->name('comments.show');
+
 Route::get('comments/create', [CommentController::class, 'create'])
     ->name('comments.create');
 
 Route::post('/comments', [CommentController::class, 'store'])
-    ->name('comment.store');
+    ->name('comments.store');
 
 //Testing
 Route::get('/startpage/{name}', function ($name) {

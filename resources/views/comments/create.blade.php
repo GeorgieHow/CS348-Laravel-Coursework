@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form method="POST" action = "{{route('comment.store')}}">
+    <form method="POST" action = "{{route('comments.store')}}">
         @csrf
         <ul style = "color:#ffffff;">
             <li>Comment Text: <input style="color:black;" type="text" 
