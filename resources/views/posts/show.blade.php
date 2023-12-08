@@ -14,12 +14,14 @@
     </ul>
     <ul>
         @foreach($allComments=$post->comments as $comment)
-            <li>{{$comment->user_id}}: {{$comment->comment_text}}</li>
+            <li>{{$comment->user->name}}: {{$comment->comment_text}}</li>
             <br/>
         @endforeach
+
     </ul>
     <ul>
-        <li><a href="{{route('comments.create')}}" style="color:white;">
+        <li><a href="{{ route('comments.create', ['id' => $post -> id]) }}" 
+            style="color:white;">
             Comment</a></li>
         <li><a href="{{route('posts.index')}}" style="color:white;">
             Cancel</a></li>

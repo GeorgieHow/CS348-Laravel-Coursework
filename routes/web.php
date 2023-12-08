@@ -51,13 +51,13 @@ Route::get('/posts/{id}', [PostController::class, 'show'])
 Route::get('/comments', [CommentController::class, 'index'])
     ->name('comments.index');
 
-Route::get('comments/create', [CommentController::class, 'create'])
+Route::get('posts/{id}/comments/create', [CommentController::class, 'create'])
     ->name('comments.create');
 
-Route::post('/comments', [CommentController::class, 'store'])
+Route::post('/comments/{id}/comments', [CommentController::class, 'store'])
     ->name('comments.store');
 
-Route::get('/comments/{id}', [CommentController::class, 'show'])
+Route::get('post/{id}/comments/{id2}', [CommentController::class, 'show'])
     ->name('comments.show');
 
 //Testing

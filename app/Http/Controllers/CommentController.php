@@ -20,16 +20,16 @@ class CommentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(String $id)
     {
-        
-        return view ('comments.create');
+        //return dd($id);
+        return view ('comments.create', ['post' => $id]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, String $id)
     {
         
         $validatedData = $request->validate([
@@ -38,7 +38,7 @@ class CommentController extends Controller
 
         $newComment = new Comment;
         $newComment-> comment_text = $validatedData['comment_text'];
-        //$newComment-> post_id = $id;
+        $newComment-> post_id = $id;
         $newComment-> user_id = $request->user()->id;
         $newComment-> created_at = now();
         $newComment->save();
