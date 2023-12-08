@@ -50,7 +50,10 @@ class CommentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
+        $comment = Comment::findOrFail($id);
+        //dd($comment);
+        return view ('comments.show', ['comment' => $comment]);
     }
 
     /**
