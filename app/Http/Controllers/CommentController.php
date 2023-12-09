@@ -80,6 +80,10 @@ class CommentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $comment = Comment::find($id);
+        $postid = $comment->post_id;
+        $comment->delete();
+        //return dd($comment);
+        return redirect()->route('posts.show', ['id' => $postid]);
     }
 }

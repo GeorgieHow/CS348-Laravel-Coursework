@@ -15,6 +15,9 @@
     <ul>
         @foreach($allComments=$post->comments as $comment)
             <li>{{$comment->user->name}}: {{$comment->comment_text}}</li>
+            <li><a href="{{ route('comments.destroy', ['id' => $comment -> id])}}"
+            style="color:white;">
+            Delete Comment</a></li>
             <br/>
         @endforeach
 

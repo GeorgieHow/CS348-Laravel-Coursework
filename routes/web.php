@@ -60,6 +60,9 @@ Route::post('/comments/{id}/comments', [CommentController::class, 'store'])
 Route::get('post/{id}/comments/{id2}', [CommentController::class, 'show'])
     ->name('comments.show');
 
+Route::get('post/{id}/comments', [CommentController::class,'destroy'])
+    ->name('comments.destroy');
+
 //Testing
 Route::get('/startpage/{name}', function ($name) {
     return view('startpage', ['name' => $name]);
