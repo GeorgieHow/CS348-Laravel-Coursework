@@ -10,6 +10,9 @@
         </a>
         <li>Content: {{$post->post_text}} </li>
         <li>[Created at {{$post->created_at}}] </li>
+        <li><a href="{{ route('posts.destroy', ['id' => $post -> id])}}"
+            style="color:white;">
+            Delete Post</a></li>
         <br/>
     </ul>
     <ul>

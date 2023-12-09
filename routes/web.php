@@ -46,6 +46,9 @@ Route::post('/posts', [PostController::class, 'store'])
 Route::get('/posts/{id}', [PostController::class, 'show'])
     ->name('posts.show');
 
+    Route::get('/posts/{id}/a', [PostController::class, 'destroy'])
+    ->name('posts.destroy');
+
 //Route to comment related content
 
 Route::get('/comments', [CommentController::class, 'index'])

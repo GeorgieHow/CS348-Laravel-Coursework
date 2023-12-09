@@ -81,6 +81,12 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        foreach($allComments=$post->comments as $comment){
+            $comment->delete();
+        };
+        $post->delete();
+        return redirect('/posts');
+        //return dd($post);
     }
 }
