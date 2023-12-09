@@ -24,4 +24,18 @@
         @endforeach
     </ul>
 
+    <ul>
+    <br/>
+        <li>User's Comments<li>
+            @foreach($user->comments as $comment)
+            <li>
+                Comment Text: {{$comment ->comment_text}}<br/>
+                Commented on: {{$comment->post->post_title}} 
+                [Post ID: {{$comment ->post_id}}]
+
+            </li>
+            <br/>
+        @endforeach
+    </ul>
+
 @endsection
