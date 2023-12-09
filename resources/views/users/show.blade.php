@@ -29,10 +29,12 @@
         <li>User's Comments<li>
             @foreach($user->comments as $comment)
             <li>
+                <a href="{{ route('comments.show', ['id' => $comment->id,
+                'id2' => $comment->post->id]) }}">
                 Comment Text: {{$comment ->comment_text}}<br/>
                 Commented on: {{$comment->post->post_title}} 
                 [Post ID: {{$comment ->post_id}}]
-
+                </a>
             </li>
             <br/>
         @endforeach
