@@ -15,6 +15,7 @@ class TagTableSeeder extends Seeder
     public function run(): void
     {
         //Test Tag
+        /*
         $tag1 = new Tag;
         $tag1->tag_name = "Cooking";
         $tag1->save();
@@ -28,8 +29,16 @@ class TagTableSeeder extends Seeder
 
         $tag1->posts()->attach(14);
         $tag2->posts()->attach(14);
+        */
 
         Tag::factory()->count(10)->create();
+        $tags = Tag::all();
 
+        //Getting all posts and attaching 2 random tags to each
+        Post::all()->each(function ($post) use ($tags){
+            $post->tags()->attach(
+                $tags->random(rand(1,3))->pluck('id')->toArray()
+            );
+        });
     }
 }
