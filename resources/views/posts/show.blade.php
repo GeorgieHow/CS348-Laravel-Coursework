@@ -22,6 +22,10 @@
             @endforeach
         </li>
         <li>[Created at {{$post->created_at}}] </li>
+        <br/>   
+        <li><a href="{{ route('posts.edit', ['id' => $post ->id])}}" 
+            style="color:white;">
+            Edit Post</a></li>
         <li><a href="{{ route('posts.destroy', ['id' => $post -> id])}}"
             style="color:white;">
             Delete Post</a></li>
