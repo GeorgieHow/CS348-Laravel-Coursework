@@ -26,7 +26,7 @@
         <li><a href="{{ route('posts.edit', ['id' => $post ->id])}}" 
             style="color:white;">
             Edit Post</a></li>
-        <li><a href="{{ route('posts.destroy', ['id' => $post -> id])}}"
+        <li><a href="{{ route('posts.destroy', ['id' => $post ->id])}}"
             style="color:white;">
             Delete Post</a></li>
         <br/>
@@ -42,7 +42,7 @@
 
     </ul>
     <ul>
-        <li><a href="{{ route('comments.create', ['id' => $post -> id]) }}" 
+        <li><a href="{{ route('comments.create', ['id' => $post ->id]) }}" 
             style="color:white;">
             Comment</a></li>
         <li><a href="{{route('posts.index')}}" style="color:white;">

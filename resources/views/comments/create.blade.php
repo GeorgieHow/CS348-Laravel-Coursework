@@ -21,7 +21,8 @@
             
               
         </ul>
-        <a href="{{route('posts.show', ['id' => $post])}}" style="color:white;">Cancel</a>
+        <a href="{{route('posts.show', ['id' => $post])}}"
+        style="color:white;">Cancel</a>
     </form>
 
 @endsection

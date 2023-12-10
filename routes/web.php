@@ -46,11 +46,14 @@ Route::post('/posts', [PostController::class, 'store'])
 Route::get('/posts/{id}', [PostController::class, 'show'])
     ->name('posts.show');
 
-Route::get('/posts/{id}/a', [PostController::class, 'destroy'])
+Route::get('/posts/{id}/destroy', [PostController::class, 'destroy'])
     ->name('posts.destroy');
 
 Route::get('posts/{id}/edit', [PostController::class, 'edit'])
     ->name('posts.edit');
+
+Route::post('/posts/{id}', [PostController::class, 'update'])
+    ->name('posts.update');
 
 //Route to comment related content
 
