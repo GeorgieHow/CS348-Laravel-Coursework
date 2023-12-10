@@ -62,9 +62,12 @@ class CommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id, string $id2)
     {
-        //
+        $comment = Comment::findOrFail($id);
+        $post = Comment::findOrFail($id2);
+        return view ('comments.edit', ['id' => $comment,
+        'id2' => $post]);
     }
 
     /**

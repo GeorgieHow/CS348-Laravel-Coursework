@@ -37,6 +37,10 @@
             <li><a href="{{ route('comments.destroy', ['id' => $comment -> id])}}"
             style="color:white;">
             Delete Comment</a></li>
+            <li><a href="{{ route('comments.edit', ['id' => $comment ->id,
+            'id2' =>$post->id])}}" 
+            style="color:white;">
+            Edit Comment</a></li>
             <br/>
         @endforeach
 
