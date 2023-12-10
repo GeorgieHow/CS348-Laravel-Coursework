@@ -63,18 +63,23 @@ Route::get('/comments', [CommentController::class, 'index'])
 Route::get('posts/{id}/comments/create', [CommentController::class, 'create'])
     ->name('comments.create');
 
-Route::post('/comments/{id}/comments', [CommentController::class, 'store'])
+//Might need to change the first /posts back to comments ?? idk
+Route::post('/posts/{id}/comments', [CommentController::class, 'store'])
     ->name('comments.store');
 
-Route::get('post/{id}/comments/{id2}', [CommentController::class, 'show'])
+Route::get('posts/{id}/comments/{id2}', [CommentController::class, 'show'])
     ->name('comments.show');
 
-Route::get('post/{id}/comments', [CommentController::class,'destroy'])
+Route::get('posts/{id}/comments', [CommentController::class,'destroy'])
     ->name('comments.destroy');
 
 Route::get('posts/{id}/comments/{id2}/edit', [CommentController::class, 
     'edit'])
     ->name('comments.edit');
+
+Route::post('comments/{id}/comments', [CommentController::Class,
+    'update'])
+    ->name('comments.update');
 
 //Testing
 Route::get('/startpage/{name}', function ($name) {

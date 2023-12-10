@@ -79,7 +79,7 @@ class PostController extends Controller
             'post_text' => 'required|max:255',
         ]);
 
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
         //return dd($post);
 
         $post->post_title = $request->post_title;

@@ -66,8 +66,8 @@ class CommentController extends Controller
     {
         $comment = Comment::findOrFail($id);
         $post = Comment::findOrFail($id2);
-        return view ('comments.edit', ['id' => $comment,
-        'id2' => $post]);
+        return view ('comments.edit', ['comment' => $comment,
+        'post' => $post]);
     }
 
     /**
@@ -75,7 +75,19 @@ class CommentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'comment_text' => 'required|max:255',
+        ]);
+
+        $comment = Comment::findOrFail($id);
+        //return dd($comment);
+        $postid = $comment->post_id;
+
+        $comment->comment_text = $request->comment_text;
+        $comment->save();
+
+        return redirect()->route('posts.show', ['id' => $postid]);
+
     }
 
     /**
