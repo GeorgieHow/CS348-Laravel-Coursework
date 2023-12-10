@@ -11,8 +11,11 @@
         <li>Content: {{$post->post_text}} </li>
         <li>
             Tags:
+            @if($post->tags->isEmpty())
+                N/A
+            @endif
             @foreach($allTags=$post->tags as $tag)
-                {{$tag->tag_name}}
+                {{$tag->tag_name}} 
                 @if( !$loop->last)
                 ,
                 @endif
