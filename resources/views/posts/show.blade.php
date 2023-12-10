@@ -9,6 +9,15 @@
             <li>Posted by: {{$post->user->name }} </li>
         </a>
         <li>Content: {{$post->post_text}} </li>
+        <li>
+            Tags:
+            @foreach($allTags=$post->tags as $tag)
+                {{$tag->tag_name}}
+                @if( !$loop->last)
+                ,
+                @endif
+            @endforeach
+        </li>
         <li>[Created at {{$post->created_at}}] </li>
         <li><a href="{{ route('posts.destroy', ['id' => $post -> id])}}"
             style="color:white;">

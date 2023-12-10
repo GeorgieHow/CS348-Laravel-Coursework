@@ -15,13 +15,19 @@ class TagTableSeeder extends Seeder
     public function run(): void
     {
         //Test Tag
-        $tag = new Tag;
-        $tag->tag_name = "Cooking";
-        $tag->save();
+        $tag1 = new Tag;
+        $tag1->tag_name = "Cooking";
+        $tag1->save();
+
+        $tag2 = new Tag;
+        $tag2->tag_name = "Sports";
+        $tag2->save();
 
         //Attaching random posts to the tag
-        $tag->posts()->attach(1);
-        $tag->posts()->attach(14);
+        $tag1->posts()->attach(1);
+
+        $tag1->posts()->attach(14);
+        $tag2->posts()->attach(14);
 
     }
 }
