@@ -112,6 +112,9 @@ class PostController extends Controller
         foreach($allComments=$post->comments as $comment){
             $comment->delete();
         };
+        foreach($allTags=$post->tags as $tag){
+            $post->tags()->detach($tag);
+        }
         $post->delete();
         return redirect('/posts');
         //return dd($post);
