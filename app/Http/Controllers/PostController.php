@@ -37,6 +37,8 @@ class PostController extends Controller
             'post_text' => 'required|max:255',
         ]);
 
+        return dd($request);
+        /*
         $newPost = new Post;
         $newPost-> post_title = $validatedData['post_title'];
         $newPost-> post_text = $validatedData['post_text'];
@@ -46,7 +48,7 @@ class PostController extends Controller
 
         session()->flash('message', 'Post was successfully created.');
         return redirect()->route('posts.index');
-        //dd($validatedData);
+        //dd($validatedData);*/
     }
 
     /**

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form method="POST" action = "{{route('posts.store')}}">
+    <form id="form" method="POST" action = "{{route('posts.store')}}">
         @csrf
         <ul style = "color:#ffffff;">
             <li>Post Title: <input style="color:black;" type="text" 
@@ -12,14 +12,16 @@
             <li>Post Text: <input style="color:black;" type="text" 
                 name="post_text" value="{{ old('post_text')}}"/></li>
             <li>Add Tags:
-                <select class="form-control" id="selectTag" name="tags[]"  
-                onchange="addToSelectedTags()" style="color:black;" required focus>
+                <select class="form-control" id="selectTag" name="tagsDropdown"  
+                onchange="addToSelectedTags()" 
+                style="color:black;" required focus>
                 {{$tags = App\Models\Tag::all()}}
                 @foreach($tags as $tag)
                     <option value="{{$tag->id}}">{{$tag->tag_name}}</option>
                 @endforeach               
                 </select>
             </li>
+            <li><input type="hidden" id="tagsInputted" name="tags" value=""/></li>
 
             <h2>Selected Tags:</h2>
             <ul id="selectedTags"></ul>
@@ -89,5 +91,12 @@
                 listItem.appendChild(removeButton);
                 selectedTagsList.appendChild(listItem);
             });
+
+            var myForm = document.getElementById("form");
+            var dataArrayInput = document.getElementById("tagsInputted");
+
+            // Set the value of the hidden input to the array as a JSON string
+            dataArrayInput.value = JSON.stringify(selectedTags);
+
     }
 </script>
