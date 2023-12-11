@@ -109,9 +109,11 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         $post = Post::findOrFail($id);
+        //Destroys comments on post
         foreach($allComments=$post->comments as $comment){
             $comment->delete();
         };
+        //Detaches tags from post
         foreach($allTags=$post->tags as $tag){
             $post->tags()->detach($tag);
         }
