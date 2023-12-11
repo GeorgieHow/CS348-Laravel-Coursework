@@ -15,7 +15,6 @@
                 <select class="form-control" id="selectTag" name="tagsDropdown"  
                 onchange="addToSelectedTags()" 
                 style="color:black;" required focus>
-                {{$tags = App\Models\Tag::all()}}
                 @foreach($tags as $tag)
                     <option value="{{$tag->id}}">{{$tag->tag_name}}</option>
                 @endforeach               
