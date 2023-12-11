@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -37,8 +38,15 @@ class PostController extends Controller
             'post_text' => 'required|max:255',
         ]);
 
-        return dd($request);
-        /*
+        //tags
+        $tagsFromString = $request->tags;
+        $tagsForm = json_decode($tagsFromString, true);
+
+        foreach($tagsForm as $tag){
+            $tagRecord = Tag::where('tag_name', $tag)->first();
+            $newTagArray[] = $tagRecord;
+        }
+        
         $newPost = new Post;
         $newPost-> post_title = $validatedData['post_title'];
         $newPost-> post_text = $validatedData['post_text'];
@@ -46,9 +54,13 @@ class PostController extends Controller
         $newPost-> created_at = now();
         $newPost->save();
 
+        foreach($newTagArray as $tag){
+            $newPost->tags()->attach($tag);
+        }
+        
         session()->flash('message', 'Post was successfully created.');
         return redirect()->route('posts.index');
-        //dd($validatedData);*/
+        //dd($validatedData);
     }
 
     /**

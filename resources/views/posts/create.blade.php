@@ -91,8 +91,7 @@
                 listItem.appendChild(removeButton);
                 selectedTagsList.appendChild(listItem);
             });
-
-            var myForm = document.getElementById("form");
+            
             var dataArrayInput = document.getElementById("tagsInputted");
 
             // Set the value of the hidden input to the array as a JSON string
