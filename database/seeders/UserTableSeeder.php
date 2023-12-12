@@ -23,6 +23,12 @@ class UserTableSeeder extends Seeder
         $user->password = 'password';
         $user->save();
 
+        $user2 = new User;
+        $user2->name = 'SecondUser';
+        $user2->email = 'seconduser@example.com';
+        $user2->password = 'password';
+        $user2->save();
+
         //Generates 20 random users, then generates 2 random posts linked to them
         User::factory()->count(20)
         ->has(Profile::factory())
