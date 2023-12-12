@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -65,9 +66,8 @@ class CommentController extends Controller
     public function edit(string $id, string $id2)
     {
         $comment = Comment::findOrFail($id);
-        $post = Comment::findOrFail($id2);
-        return view ('comments.edit', ['comment' => $comment,
-        'post' => $post]);
+        $post = Post::findOrFail($id2);
+        return view ('comments.edit', ['comment' => $comment, 'post' => $post]);
     }
 
     /**

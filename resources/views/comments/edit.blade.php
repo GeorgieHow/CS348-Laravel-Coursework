@@ -4,8 +4,8 @@
 
 @section('content')
 
-    <form wire:submit.prevent="update" method="POST" action = "{{route('comments.update',
-    ['id' => $post]) }}">
+    <form method="POST" action = "{{route('comments.update',
+    ['id' => $comment, 'id2' => $post]) }}">
         @csrf
         <ul style = "color:#ffffff;">
             <li>Comment Text: <input style="color:black;" type="text" 
