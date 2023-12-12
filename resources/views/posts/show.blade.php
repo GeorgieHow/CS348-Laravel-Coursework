@@ -3,8 +3,9 @@
 @section('title', 'Post Details')
 
 @section('content')
+    @vite('resources/css/app.css')
     <ul style = "color:#ffffff;">
-        <li>Post Title: {{$post->post_title}} </li>
+        <li><p>Post Title: {{$post->post_title}}</p> </li>
         <a href="{{ route('users.show', ['id' => $post -> user_id]) }}">
             <li>Posted by: {{$post->user->name }} </li>
         </a>
@@ -21,7 +22,8 @@
                 @endif
             @endforeach
         </li>
-        <li>[Created at {{$post->created_at}}] </li>
+        <li>[Created at: &nbsp;{{$post->created_at}}] </li>
+        <li>[Updated at: {{$post->updated_at}}]</li>
         <br/>   
         <li><a href="{{ route('posts.edit', ['id' => $post ->id])}}" 
             style="color:white;">

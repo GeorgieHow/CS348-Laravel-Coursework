@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        @livewireStyles
         <title>Code Castle - @yield('title')</title>
 
         <!-- Fonts -->
@@ -45,5 +46,7 @@
             <main>
                 @yield('content')
         </div>
+
+        @livewireScripts
     </body>
 </html>
