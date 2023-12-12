@@ -24,11 +24,12 @@
                                     {{$post ->post_title}}</p>
                                 </li>
                                 <li>{{$post ->post_text}}</li>
-                                <li><p class="italic text-right">
+                                <li>
+                                    <p class="text-right">
                                     <span class="bg-gray-800 rounded shadow-lg">
-                                    [{{$post ->created_at}}]
+                                    [Created by {{$post->user->name}} at <span class="italic"> {{$post ->created_at}}</span>]
                                     </span>
-                                </p>
+                                    </p>
                             </li>
                                 </ul>
                             </a>
@@ -42,5 +43,7 @@
         </div>
     </div>
     <!-- Creates the pagination at the bottom of the page -->
+    <div class="flex justify-end">
     {{ $posts->links() }}
+    </div>
 @endsection
