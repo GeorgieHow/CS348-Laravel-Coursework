@@ -4,32 +4,57 @@
 
 @section('content')
 
-    <form id="form" method="POST" action = "{{route('posts.store')}}">
-        @csrf
-        <ul style = "color:#ffffff;">
-            <li>Post Title: <input style="color:black;" type="text" 
-                name="post_title" value="{{ old('post_title')}}"/></li>
-            <li>Post Text: <input style="color:black;" type="text" 
-                name="post_text" value="{{ old('post_text')}}"/></li>
-            <li>Add Tags:
-                <select class="form-control" id="selectTag" name="tagsDropdown"  
-                onchange="addToSelectedTags()" 
-                style="color:black;" required focus>
-                @foreach($tags as $tag)
-                    <option value="{{$tag->id}}">{{$tag->tag_name}}</option>
-                @endforeach               
-                </select>
-            </li>
-            <li><input type="hidden" id="tagsInputted" name="tags" value=""/></li>
+    <div class="bg-gray-600 pb-8">
+        <p class="bg-gray-800 px-4 py-4 text-3xl font-medium text-gray-900 
+        dark:text-white shadow-lg"> Create Post: </p>
 
-            <h2>Selected Tags:</h2>
-            <ul id="selectedTags"></ul>
 
-            <input type = "submit" value = "Submit"/>
-        </ul>
-        <a href="{{route('posts.index')}}" style="color:white;">Cancel</a>
-    </form>
+        <form id="form" method="POST" action = "{{route('posts.store')}}">
+            @csrf
+            <ul>
 
+                <li class="pl-8 px-6 py-4 text-2xl max-w-xs font-medium ">
+                    <span class="text-gray-900 dark:text-white ">Post Title: 
+                    <input style="color:black;" class="rounded" type="text" 
+                    name="post_title" value="{{ old('post_title')}}"/></li>
+                <li class="pl-8 px-6 text-2xl max-w-xs font-medium text-gray-900 dark:text-white ">
+                    <span class="rounded shadow-lg">Post Text: <input style="color:black;" class="rounded" type="text" 
+                    name="post_text" value="{{ old('post_text')}}"/></li>
+                <li class="pl-8 px-6 py-4 text-2xl max-w-xs font-medium text-gray-900 dark:text-white ">
+                    <span class="rounded shadow-lg">Add Tags:
+                    <select class="form-control" id="selectTag" name="tagsDropdown"  
+                    onchange="addToSelectedTags()" 
+                    style="color:black;" required focus>
+                    @foreach($tags as $tag)
+                        <option value="{{$tag->id}}">{{$tag->tag_name}}</option>
+                    @endforeach               
+                    </select>
+                </li>
+                <li><input type="hidden" id="tagsInputted" name="tags" value=""/></li>
+
+                <div class="bg-gray-800">
+                    <h2 class=" px-6 py-4 text-2xl max-w-xs font-medium 
+                    text-gray-900 dark:text-white ">Selected Tags:</h2>
+                    <ul id="selectedTags"></ul>
+                    <br/>
+                </div>
+
+                <br/>
+                    <div>
+                    &nbsp;
+                    <input class="bg-gray-800 rounded px-6 py-2 text-2xl max-w-xs 
+                    font-medium text-gray-900 dark:text-white shadow-lg" type = "submit"
+                    value = "Post"/>
+                </div>
+
+                <br/>
+                &nbsp;
+                <a href="{{route('posts.index')}}" class="bg-gray-800 rounded px-3 py-2 text-2xl max-w-xs 
+                font-medium text-gray-900 dark:text-white shadow-lg">
+                Cancel</a>
+            </ul>
+        </form>
+    </div>
 @endsection
 
 
@@ -77,11 +102,14 @@
             // Update the list of selected fruits
             selectedTags.forEach(function (tag, index) {
                 var listItem = document.createElement("li");
+                listItem.classList.add('pl-8', 'px-6', 'text-xl', 
+                'max-w-xs', 'font-medium', 'text-gray-900', 'dark:text-white');
                 listItem.textContent = tag;
 
                 listItem.appendChild(document.createTextNode(" "));
                 // Add a remove button next to each tag
                 var removeButton = document.createElement("button");
+                removeButton.classList.add('bg-gray-700', 'rounded', 'shadow-lg');
                 removeButton.textContent = "Remove";
                 removeButton.onclick = function () {
                     removeFromSelectedTags(index);
