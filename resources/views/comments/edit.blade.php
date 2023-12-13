@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Comment Creation')
+@section('title', 'Edit Comment')
 
 @section('content')
 

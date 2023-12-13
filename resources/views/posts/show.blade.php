@@ -66,8 +66,8 @@
     <ul>
         @foreach($allComments=$post->comments as $comment)
             <div class="bg-gray-700 rounded shadow-lg">
-            <li> <span class="px-4 py-4 text-2xl max-w-xs font-medium text-gray-900 
-                dark:text-white ">{{$comment->user->name}}:</span> 
+            <li><a href="{{ route('users.show', ['id' => $comment -> user_id]) }}"><span class="px-4 py-4 text-2xl max-w-xs font-medium text-gray-900 
+                dark:text-white ">{{$comment->user->name}}</a>:</span> 
                 <span class="text-xl max-w-xs font-light text-gray-900 
                 dark:text-white "> {{$comment->comment_text}} </span></li>
             <li class="px-4"><a href="{{ route('comments.destroy', 
