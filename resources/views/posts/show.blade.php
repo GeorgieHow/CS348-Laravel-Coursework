@@ -81,6 +81,7 @@
                 &nbsp;
                 </span>
             </a></li>
+            @canEditComment($comment)
             <li class="px-4"><a href="{{ route('comments.edit', ['id' => $comment ->id,
             'id2' =>$post->id])}}">
             <span class="bg-gray-800 rounded shadow-lg text-lg font-semibold"> &nbsp;
@@ -88,6 +89,7 @@
             &nbsp;
             </span>
             </a></li>
+            @endcanEditComment
             </div>
             <br/>
         @endforeach

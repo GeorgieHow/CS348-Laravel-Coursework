@@ -42,5 +42,17 @@ class AppServiceProvider extends ServiceProvider
 
             return ($deleteOwnPost || $adminDeletePost);
         });
+
+        Blade::if('canEditComment', function($comment){
+            $user = auth()->user();
+
+            $editOwnComment = ($user->hasPermissionTo('edit-own-comment')) 
+            && ($user->id == $comment -> user_id);
+
+            $adminEditComment = ($user->hasPermissionTo('edit-comment'));
+
+            return ($editOwnComment || $adminEditComment);
+        });
+
     }
 }
