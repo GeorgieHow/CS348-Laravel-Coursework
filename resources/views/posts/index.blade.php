@@ -8,7 +8,7 @@
             &nbsp; All Posts
         </p>
         <div class="pl-8 px-6 py-4 text-2xl max-w-xs font-medium text-gray-900 dark:text-white ">
-            <span class="bg-gray-800 rounded shadow-lg">
+            <span class="bg-gray-800 rounded shadow-lg hover:font-bold">
             <a href = "{{ route('posts.create')}}"> &nbsp; Create Post &nbsp; </a>
             </span>
         </div>
@@ -16,7 +16,7 @@
             <ul>
 
                     @foreach($posts as $post)
-                        <div class="bg-gray-700 max-w-4xl px-6 py-4 rounded shadow-lg">
+                        <div class="bg-gray-700 max-w-4xl px-6 py-4 rounded shadow-lg hover:bg-blue-900">
                         <li>
                             <a href="{{ route('posts.show', ['id' => $post -> id]) }}">
                                 <ul>
@@ -34,7 +34,7 @@
                                 </ul>
                             </a>
                         </li>
-                    </div>
+                        </div>
                     <br/>
                     @endforeach
 

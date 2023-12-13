@@ -43,14 +43,14 @@
                 <div>
                     &nbsp;
                     <input class="bg-gray-800 rounded px-6 py-2 text-2xl max-w-xs 
-                    font-medium text-gray-900 dark:text-white shadow-lg" type = "submit"
+                    font-medium text-gray-900 hover:font-bold dark:text-white shadow-lg" type = "submit"
                     value = "Post"/>
                 </div>
 
                 <br/>
                 &nbsp;
                 <a href="{{route('posts.index')}}" class="bg-gray-800 rounded px-3 py-2 text-2xl max-w-xs 
-                font-medium text-gray-900 dark:text-white shadow-lg">
+                font-medium text-gray-900 hover:font-bold dark:text-white shadow-lg">
                 Cancel</a>
             </ul>
         </form>

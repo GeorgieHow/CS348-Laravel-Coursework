@@ -21,7 +21,7 @@
                 <div>
                 &nbsp;
                 <input class="bg-gray-800 rounded px-6 py-2 text-2xl max-w-xs 
-                font-medium text-gray-900 dark:text-white shadow-2xl" type = "submit" value = "Submit"/>
+                font-medium text-gray-900 hover:font-bold dark:text-white shadow-2xl" type = "submit" value = "Submit"/>
                 </div>
             
               
@@ -30,7 +30,7 @@
         <div class="px-2">
             <a href="{{route('posts.show', ['id' => $post])}}" 
                 class="bg-gray-800 rounded px-6 py-2 text-2xl max-w-xs 
-                    font-medium text-gray-900 dark:text-white shadow-lg">Cancel</a>
+                    font-medium text-gray-900 hover:font-bold    dark:text-white shadow-lg">Cancel</a>
             </div>
     </form>
 </div>
