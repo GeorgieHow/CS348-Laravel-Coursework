@@ -16,6 +16,13 @@
                 </a>
                 </span>
             </li>
+            <div class="px-6">
+                @if(session('edited'))
+                <div class="bg-white alert alert-edited px-6 py-4 text-2xl max-w-xs font-medium rounded text-black">
+                    {{session('edited')}}
+                </div>
+                @endif
+                </div>
         <div class="bg-gray-700 rounded shadow-lg">
         <div class="text-xl">
             <li class=" px-4 font-light">{{$post->post_text}} </li>

@@ -103,6 +103,7 @@ class PostController extends Controller
         $post->post_text = $request->post_text;
         $post->save();
 
+        session()->flash('edited', 'Post was successfully edited.');
         return redirect()->route('posts.show', ['id' => $id]);
     }
 
