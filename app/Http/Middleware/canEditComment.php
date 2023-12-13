@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Models\Post;
+use App\Models\Comment;
 
 class canEditComment
 {
@@ -15,6 +17,23 @@ class canEditComment
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+
+        $commentID = $request->route('id');
+        $comment = Comment::find($commentID);
+
+        $user = auth()->user();
+
+        if($user->id === $comment->user_id){
+            if($user->can('edit-own-comment')){
+                return $next($request);
+            }
+        }
+        else{
+            if($user->can('edit-comment')){
+                return $next($request);
+            }
+        }
+
+        return abort(403);
     }
 }
