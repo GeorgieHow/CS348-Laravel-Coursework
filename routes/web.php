@@ -47,7 +47,7 @@ Route::get('/posts/{id}', [PostController::class, 'show'])
     ->name('posts.show');
 
 Route::get('/posts/{id}/destroy', [PostController::class, 'destroy'])
-    ->name('posts.destroy');
+    ->middleware(['can-delete-post'])->name('posts.destroy');
 
 Route::get('posts/{id}/edit', [PostController::class, 'edit'])
     ->middleware(['can-edit-post'])->name('posts.edit');
