@@ -70,10 +70,12 @@
     <ul>
         @foreach($allComments=$post->comments as $comment)
             <div class="bg-gray-700 rounded shadow-lg">
+
             <li><a href="{{ route('users.show', ['id' => $comment -> user_id]) }}"><span class="px-4 py-4 text-2xl max-w-xs font-medium text-gray-900 
                 dark:text-white ">{{$comment->user->name}}</a>:</span> 
                 <span class="text-xl max-w-xs font-light text-gray-900 
                 dark:text-white "> {{$comment->comment_text}} </span></li>
+            @canDeleteComment($comment)
             <li class="px-4"><a href="{{ route('comments.destroy', 
             ['id' => $comment -> id])}}">
             <span class="bg-gray-800 rounded shadow-lg text-lg font-semibold"> &nbsp;
@@ -81,6 +83,7 @@
                 &nbsp;
                 </span>
             </a></li>
+            @endcanDeleteComment
             @canEditComment($comment)
             <li class="px-4"><a href="{{ route('comments.edit', ['id' => $comment ->id,
             'id2' =>$post->id])}}">
