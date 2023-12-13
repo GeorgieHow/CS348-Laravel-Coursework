@@ -52,6 +52,7 @@
                 </span>
                 </a></li>
             @endcanEditPost
+            @canDeletePost($post)
             <li class="px-4 text-2xl max-w-xs font-medium text-gray-900
             dark:text-white "><a href="{{ route('posts.destroy', 
             ['id' => $post ->id])}}">
@@ -60,6 +61,7 @@
                 &nbsp;
                 </span>
             </a></li>
+            @endcanDeletePost
         </div>
         <br/>
         </div>

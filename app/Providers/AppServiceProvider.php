@@ -31,5 +31,16 @@ class AppServiceProvider extends ServiceProvider
 
             return ($editOwnPost || $adminEditPost);
         });
+
+        Blade::if('canDeletePost', function($post){
+            $user = auth()->user();
+
+            $deleteOwnPost = ($user->hasPermissionTo('delete-own-post')) 
+            && ($user->id == $post -> user_id);
+
+            $adminDeletePost = ($user->hasPermissionTo('delete-post'));
+
+            return ($deleteOwnPost || $adminDeletePost);
+        });
     }
 }
