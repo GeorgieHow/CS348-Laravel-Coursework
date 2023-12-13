@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Notifications\PostCommentedOn;
 
 class CommentController extends Controller
 {
@@ -43,6 +44,10 @@ class CommentController extends Controller
         $newComment-> user_id = $request->user()->id;
         $newComment-> created_at = now();
         $newComment->save();
+
+        $postOwner = $newComment->post->user;
+        $postID = $newComment->post->id;
+        $postOwner->notify(new PostCommentedOn($postID));
 
         session()->flash('message', 'Comment was successfully created.');
         return redirect()->route('posts.show', ['id' => $id]);
