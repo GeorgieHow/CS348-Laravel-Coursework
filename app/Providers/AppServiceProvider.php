@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,16 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        
+        Blade::if('canEditPost', function($post){
+            $user = auth()->user();
+
+            $editOwnPost = ($user->hasPermissionTo('edit-own-post')) 
+            && ($user->id == $post -> user_id);
+
+            $adminEditPost = ($user->hasPermissionTo('edit-post'));
+
+            return ($editOwnPost || $adminEditPost);
+        });
     }
 }
