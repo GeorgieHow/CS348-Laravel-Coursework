@@ -40,7 +40,7 @@
                 </div>
 
                 <br/>
-                    <div>
+                <div>
                     &nbsp;
                     <input class="bg-gray-800 rounded px-6 py-2 text-2xl max-w-xs 
                     font-medium text-gray-900 dark:text-white shadow-lg" type = "submit"
