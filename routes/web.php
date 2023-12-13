@@ -71,7 +71,7 @@ Route::get('posts/{id}/comments/{id2}', [CommentController::class, 'show'])
     ->name('comments.show');
 
 Route::get('posts/{id}/comments', [CommentController::class,'destroy'])
-    ->name('comments.destroy');
+    ->middleware(['can-delete-comment'])->name('comments.destroy');
 
 Route::get('posts/{id}/comments/{id2}/edit', [CommentController::class,'edit'])
     ->middleware(['can-edit-comment'])->name('comments.edit');
