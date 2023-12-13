@@ -4,25 +4,32 @@
 
 @section('content')
 
+<div class="bg-gray-600 pb-8">
+    <p class="bg-gray-800 px-4 py-4 text-3xl font-medium text-gray-900 
+    dark:text-white shadow-lg"> Add Comment: </p>
+
     <form method="POST" action = "{{route('comments.store',
     ['id' => $post]) }}">
         @csrf
         <ul style = "color:#ffffff;">
-            <li>Comment Text: <input style="color:black;" type="text" 
+            <li class="pl-8 px-6 py-4 text-2xl max-w-xs font-medium ">
+                <span class="text-gray-900 dark:text-white ">Comment Text: 
+                <input style="color:black;" class="rounded" type="text" 
                 name="comment_text" value="{{ old('comment_text')}}"/></li>
-
-                @if (session() ->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
+                
+                &nbsp;
+                <div>
+                &nbsp;
+                <input class="bg-gray-800 rounded px-6 py-2 text-2xl max-w-xs 
+                font-medium text-gray-900 dark:text-white shadow-2xl" type = "submit" value = "Submit"/>
                 </div>
-                @endif  
-
-            <input type = "submit" value = "Submit"/>
-            
-              
         </ul>
-        <a href="{{route('posts.show', ['id' => $post])}}"
-        style="color:white;">Cancel</a>
+        &nbsp;
+        <div class="px-2">
+            <a href="{{route('posts.show', ['id' => $post])}}" 
+                class="bg-gray-800 rounded px-6 py-2 text-2xl max-w-xs 
+                    font-medium text-gray-900 dark:text-white shadow-lg">Cancel</a>
+            </div>
     </form>
-
+</div>
 @endsection
