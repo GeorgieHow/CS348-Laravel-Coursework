@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class PostController extends Controller
 {
@@ -13,9 +14,22 @@ class PostController extends Controller
      */
     public function index()
     {
-        
+        //Paginates Posts
         $posts = Post::paginate(5);
-        return view ('posts.index', ['posts' => $posts]);
+
+        //Using Pokemon API
+        $getRandNumber = rand(1,151);
+        $response = 
+        Http::get('https://pokeapi.co/api/v2/pokemon/'. $getRandNumber );
+
+        //Gets image for the pokemon
+        $pokemon = $response->json();
+
+        $pokemonImage = 
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'.$getRandNumber.'.png';
+
+        return view ('posts.index', ['posts' => $posts, 'pokemon' => $pokemon,
+        'pokemonImage' => $pokemonImage]);
     }
 
     /**

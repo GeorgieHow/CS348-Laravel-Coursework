@@ -20,9 +20,9 @@ class RolesSeeder extends Seeder
 
         $viewPosts = Permission::create(['name' => 'view-posts']);
         $createPost = Permission::create(['name' => 'create-post']);
+
         $editPost = Permission::create(['name' => 'edit-post']);
         $deletePost = Permission::create(['name' => 'delete-post']);
-
         $addComments = Permission::create(['name' => 'add-comments']);
         $editComment = Permission::create(['name' => 'edit-comment']);
         $deleteComment = Permission::create(['name' => 'delete-comment']);
