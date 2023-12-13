@@ -10,7 +10,7 @@
             dark:text-white shadow-lg">{{$post->post_title}}</p> </li>
 
             <li class="bg-gray-800 px-4 text-xl font-medium rounded shadow-xl ">
-                <span class="hover:font-bold">
+                <span class="hover:font-bold hover:text-blue-300">
                 <a href="{{ route('users.show', ['id' => $post -> user_id]) }}">
                 Posted by: {{$post->user->name }} 
                 </a>
@@ -43,7 +43,7 @@
             </div>
             <br/>   
             @canEditPost($post)
-            <li class="px-4 py-4 text-2xl max-w-xs font-medium text-gray-900 
+            <li class="px-4 py-4 text-2xl max-w-xs hover:font-bold font-medium text-gray-900 
             dark:text-white "><a href="{{ route('posts.edit', 
             ['id' => $post ->id])}}">
                 <span class="bg-gray-800 rounded shadow-lg"> &nbsp;
@@ -53,7 +53,7 @@
                 </a></li>
             @endcanEditPost
             @canDeletePost($post)
-            <li class="px-4 text-2xl max-w-xs font-medium text-gray-900
+            <li class="px-4 text-2xl max-w-xs hover:font-bold font-medium text-gray-900
             dark:text-white "><a href="{{ route('posts.destroy', 
             ['id' => $post ->id])}}">
                 <span class="bg-gray-800 rounded shadow-lg"> &nbsp;
@@ -72,13 +72,13 @@
             <div class="bg-gray-700 rounded shadow-lg">
 
             <li><a href="{{ route('users.show', ['id' => $comment -> user_id]) }}"><span class="px-4 py-4 text-2xl max-w-xs font-medium text-gray-900 
-                dark:text-white ">{{$comment->user->name}}</a>:</span> 
+                dark:text-white hover:font-bold hover:text-blue-400 ">{{$comment->user->name}}</a>:</span> 
                 <span class="text-xl max-w-xs font-light text-gray-900 
                 dark:text-white "> {{$comment->comment_text}} </span></li>
             @canDeleteComment($comment)
             <li class="px-4"><a href="{{ route('comments.destroy', 
             ['id' => $comment -> id])}}">
-            <span class="bg-gray-800 rounded shadow-lg text-lg font-semibold"> &nbsp;
+            <span class="bg-gray-800 hover:font-bold rounded shadow-lg text-lg font-semibold"> &nbsp;
                 Delete Comment
                 &nbsp;
                 </span>
@@ -87,7 +87,7 @@
             @canEditComment($comment)
             <li class="px-4"><a href="{{ route('comments.edit', ['id' => $comment ->id,
             'id2' =>$post->id])}}">
-            <span class="bg-gray-800 rounded shadow-lg text-lg font-semibold"> &nbsp;
+            <span class="bg-gray-800 hover:font-bold rounded shadow-lg text-lg font-semibold"> &nbsp;
             Edit Comment
             &nbsp;
             </span>
@@ -100,13 +100,13 @@
     </ul>
     <ul>
         <li class="px-4"><a href="{{ route('comments.create', ['id' => $post ->id]) }}">
-            <span class="bg-gray-800 rounded shadow-lg text-lg font-semibold"> &nbsp;
+            <span class="bg-gray-800 hover:font-bold rounded shadow-lg text-lg font-semibold"> &nbsp;
                 Add Comment
                 &nbsp;
                 </span>
             </a></li>
         <li class="px-4"><a href="{{route('posts.index')}}">
-            <span class="bg-gray-800 rounded shadow-lg text-lg font-semibold"> &nbsp;
+            <span class="bg-gray-800 hover:font-bold rounded shadow-lg text-lg font-semibold"> &nbsp;
                 Back to All Posts
                 &nbsp;
                 </span>

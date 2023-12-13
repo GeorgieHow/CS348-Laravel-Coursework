@@ -19,6 +19,11 @@ class ProfileTableSeeder extends Seeder
         $profile->user_id = 1;
         $profile->save();
 
+        $profile2 = new Profile;
+        $profile2->profile_bio = "A very cool bio.";
+        $profile2->user_id = 2;
+        $profile2->save();
+
         //Profile::factory() -> count(20) -> create();
     }
 }
