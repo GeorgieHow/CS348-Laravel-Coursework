@@ -29,7 +29,8 @@ class RolesSeeder extends Seeder
 
         $editOwnPost = Permission::create(['name' => 'edit-own-post']);
         $editOwnComment = Permission::create(['name' => 'edit-own-comment']);
-        
+        $deleteOwnPost = Permission::create(['name' => 'delete-own-post']);
+        $deleteOwnComment = Permission::create(['name' => 'delete-own-comment']);
 
         //Gives admin role ability to do everything
         $adminRole->givePermissionTo($viewPosts);
@@ -40,7 +41,11 @@ class RolesSeeder extends Seeder
         $adminRole->givePermissionTo($editComment);
         $adminRole->givePermissionTo($deleteComment);
 
-        $usersRole->givePermissionTo($viewPosts);
+        $usersRole->givePermissionTo($editOwnPost);
+        $usersRole->givePermissionTo($editOwnComment);
+        $usersRole->givePermissionTo($deleteOwnPost);
+        $usersRole->givePermissionTo($deleteOwnComment);
+
 
         $users = User::all();
         foreach($users as $user) {

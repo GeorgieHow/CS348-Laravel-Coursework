@@ -50,7 +50,7 @@ Route::get('/posts/{id}/destroy', [PostController::class, 'destroy'])
     ->name('posts.destroy');
 
 Route::get('posts/{id}/edit', [PostController::class, 'edit'])
-    ->name('posts.edit');
+    ->middleware(['can-edit-post'])->name('posts.edit');
 
 Route::post('/posts/{id}', [PostController::class, 'update'])
     ->name('posts.update');
