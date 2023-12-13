@@ -22,7 +22,7 @@
                     {{session('edited')}}
                 </div>
                 @endif
-                </div>
+            </div>
         <div class="bg-gray-700 rounded shadow-lg">
         <div class="text-xl">
             <li class=" px-4 font-light">{{$post->post_text}} </li>
@@ -75,6 +75,21 @@
     </ul>
     <br/>
     <ul>
+        <div class="px-6">
+            @if(session('comment-created'))
+            <div class="bg-white alert alert-comment-created px-6 py-4 text-2xl max-w-xs font-medium rounded text-black">
+                {{session('comment-created')}}
+            </div>
+            @endif
+        </div>
+
+        <div class="px-6">
+            @if(session('comment-edited'))
+            <div class="bg-white alert alert-comment-edited px-6 py-4 text-2xl max-w-xs font-medium rounded text-black">
+                {{session('comment-edited')}}
+            </div>
+            @endif
+        </div>
         @foreach($allComments=$post->comments as $comment)
             <div class="bg-gray-700 rounded shadow-lg">
 
