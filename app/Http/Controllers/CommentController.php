@@ -6,6 +6,8 @@ use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Notifications\PostCommentedOn;
+use App\Notifications\MutualComments;
+use Illuminate\Support\Facades\Notification;
 
 class CommentController extends Controller
 {
@@ -45,9 +47,24 @@ class CommentController extends Controller
         $newComment-> created_at = now();
         $newComment->save();
 
+        //Emails the owner of the post.
         $postOwner = $newComment->post->user;
         $postID = $newComment->post->id;
         $postOwner->notify(new PostCommentedOn($postID));
+
+        //Emails the commenters on the post.
+        $post = $newComment->post;
+        $comments = $post->comments;
+        $userArray = [];
+
+        foreach($comments as $comment){
+            $user = $comment->user;
+            if(!in_array($user, $userArray)){
+                $userArray[] = $user;
+            }
+        }
+
+        Notification::send($userArray, new MutualComments($postID));
 
         session()->flash('message', 'Comment was successfully created.');
         return redirect()->route('posts.show', ['id' => $id]);

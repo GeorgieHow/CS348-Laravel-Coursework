@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class PostCommentedOn extends Notification
+class MutualComments extends Notification
 {
     use Queueable;
     protected $postID;
@@ -19,6 +19,7 @@ class PostCommentedOn extends Notification
     {
         $this->post = $postID;
     }
+
 
     /**
      * Get the notification's delivery channels.
@@ -38,8 +39,8 @@ class PostCommentedOn extends Notification
         $url = url('/posts/'.$this->post);
 
         return (new MailMessage)
-                    ->line('A post you created has been commented on!')
-                    ->action('Go to post!', url($url))
+                    ->line('Someone has commented on a post you commented on!')
+                    ->action('Go to post', url($url))
                     ->line('Thank you for using our application!');
     }
 
