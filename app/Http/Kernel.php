@@ -65,5 +65,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'can-edit-post' => \App\Http\Middleware\canEditPost::class,
+        'can-delete-post' => \App\Http\Middleware\canDeletePost::class,
+        'can-edit-comment' => \App\Http\Middleware\canEditComment::class,
+        'can-delete-comment' => \App\Http\Middleware\canDeleteComment::class,
     ];
 }
