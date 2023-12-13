@@ -66,7 +66,7 @@ class CommentController extends Controller
 
         Notification::send($userArray, new MutualComments($postID));
 
-        session()->flash('message', 'Comment was successfully created.');
+        session()->flash('created', 'Comment was successfully created.');
         return redirect()->route('posts.show', ['id' => $id]);
         //dd($validatedData);
     }

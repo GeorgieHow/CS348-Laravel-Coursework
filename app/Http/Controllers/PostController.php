@@ -61,7 +61,7 @@ class PostController extends Controller
             $newPost->tags()->attach($tag);
             }
         }
-        session()->flash('message', 'Post was successfully created.');
+        session()->flash('created', 'Post was successfully created.');
         return redirect()->route('posts.index');
         //dd($validatedData);
     }

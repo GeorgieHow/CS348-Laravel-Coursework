@@ -12,8 +12,18 @@
             <a href = "{{ route('posts.create')}}"> &nbsp; Create Post &nbsp; </a>
             </span>
         </div>
+
+        <div class="px-6">
+        @if(session('created'))
+        <div class="bg-white alert alert-created px-6 py-4 text-2xl max-w-xs font-medium rounded text-black">
+            {{session('created')}}
+        </div>
+        @endif
+        </div>
+
         <div class="max-w-full px-6 py-4 rounded">
             <ul>
+
 
                     @foreach($posts as $post)
                         <div class="bg-gray-700 max-w-4xl px-6 py-4 rounded shadow-lg hover:bg-blue-900">
