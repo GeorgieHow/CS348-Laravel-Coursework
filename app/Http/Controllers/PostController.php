@@ -18,7 +18,7 @@ class PostController extends Controller
         $posts = Post::paginate(5);
 
         //Using Pokemon API
-        $getRandNumber = rand(1,151);
+        $getRandNumber = rand(1,897);
         $response = 
         Http::get('https://pokeapi.co/api/v2/pokemon/'. $getRandNumber );
 

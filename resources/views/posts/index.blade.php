@@ -7,6 +7,14 @@
         <p class="bg-gray-800 px-6 py-4 text-3xl font-medium text-gray-900 dark:text-white shadow-lg">
             &nbsp; All Posts
         </p>
+
+        <p class= "pl-8 px-6 py-4 text-2xl max-w-xs font-medium text-gray-900 dark:text-white "> 
+            Logged-in User: 
+            <span class="hover:text-blue-300">
+                <a href="{{ route('users.show', ['id' => auth()->user()->id]) }}">
+                     {{auth()->user()->name}} 
+                </a></span> </p>
+
         <div class="pl-8 px-6 py-4 text-2xl max-w-xs font-medium text-gray-900 dark:text-white ">
             <span class="bg-gray-800 rounded shadow-lg hover:font-bold">
             <a href = "{{ route('posts.create')}}"> &nbsp; Create Post &nbsp; </a>
