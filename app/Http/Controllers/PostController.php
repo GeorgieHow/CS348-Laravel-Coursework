@@ -64,13 +64,15 @@ class PostController extends Controller
         }
 
         if($request->image_uploaded != NULL){
-            $imagePath = $request->file('image_uploaded')->store('posts/images', 'public');;
+            $imagePath = $request->file('image_uploaded')->store('posts/images', 'public');
         }    
 
         $newPost = new Post;
         $newPost-> post_title = $validatedData['post_title'];
         $newPost-> post_text = $validatedData['post_text'];
-        $newPost-> image_path = $imagePath;
+        if($request->image_uploaded != NULL){
+            $newPost-> image_path = $imagePath;
+        }
         $newPost-> user_id = $request -> user()->id;
         $newPost-> created_at = now();
         $newPost->save();
