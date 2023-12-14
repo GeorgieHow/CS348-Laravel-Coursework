@@ -18,9 +18,11 @@
             </li>
             <div class="px-6">
                 @if(session('edited'))
+                <br/>
                 <div class="bg-white alert alert-edited px-6 py-4 text-2xl max-w-xs font-medium rounded text-black">
                     {{session('edited')}}
                 </div>
+                <br/>
                 @endif
             </div>
         <div class="bg-gray-700 rounded shadow-lg">
@@ -80,6 +82,7 @@
             <div class="bg-white alert alert-comment-created px-6 py-4 text-2xl max-w-xs font-medium rounded text-black">
                 {{session('comment-created')}}
             </div>
+            <br/>
             @endif
         </div>
 
@@ -88,8 +91,19 @@
             <div class="bg-white alert alert-comment-edited px-6 py-4 text-2xl max-w-xs font-medium rounded text-black">
                 {{session('comment-edited')}}
             </div>
+            <br/>
             @endif
         </div>
+
+        <div class="px-6">
+            @if(session('comment-deleted'))
+            <div class="bg-white alert alert-comment-deleted px-6 py-4 text-2xl max-w-xs font-medium rounded text-black">
+                {{session('comment-deleted')}}
+            </div>
+            <br/>
+            @endif
+        </div>
+
         @foreach($allComments=$post->comments as $comment)
             <div class="bg-gray-700 rounded shadow-lg">
 

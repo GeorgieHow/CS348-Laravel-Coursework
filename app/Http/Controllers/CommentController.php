@@ -122,6 +122,8 @@ class CommentController extends Controller
         $postid = $comment->post_id;
         $comment->delete();
         //return dd($comment);
+
+        session()->flash('comment-deleted', 'Comment was successfully deleted.');
         return redirect()->route('posts.show', ['id' => $postid]);
     }
 }
