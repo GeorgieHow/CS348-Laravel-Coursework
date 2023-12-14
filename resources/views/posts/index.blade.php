@@ -30,17 +30,17 @@
         </div>
 
         <div class="px-6 shadow-xl rounded border-2 border-black float-right pl-8">
-            <p class="px-10 text-xl text-gray-900 dark:text-white rounded ">Pok&#233;mon</p>
+            <p class="px-10 text-xl text-gray-900 dark:text-white rounded "> &nbsp; Pok&#233;mon <br/>Of the Page</p>
             <img src= {{$pokemonImage}} width="180" height="180">
             <p class="text-xl text-gray-900 dark:text-white rounded">
                 <span class="px-10 bg-gray-700 font-medium" >
                 {{$pokemon['name']}}</p>
                 </span>
             <div>
-                <ul>
+                <ul class="text-lg">
                     <li>Pok&#233;dex ID: {{$pokemon['id']}}</li>
-                    <li>Height: {{$pokemon['height']}}</li>
-                    <li>Weight: {{$pokemon['weight']}}</li>
+                    <li>Height: {{$pokemon['height']}} decimeters</li>
+                    <li>Weight: {{$pokemon['weight']}}kg</li>
                 </ul>
             </div>
         </div>
