@@ -33,6 +33,6 @@ class canEditComment
             }
         }
 
-        return abort(403);
+        return abort(403, 'Not allowed to carry out this action.');
     }
 }

@@ -4,10 +4,12 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class ShowPosts extends Component
+class AddComment extends Component
 {
     public function render()
     {
-        return view('livewire.show-posts');
+
+        
+        return view('livewire.add-comment');
     }
 }

@@ -24,9 +24,10 @@ class PostController extends Controller
 
         //Gets image for the pokemon
         $pokemon = $response->json();
-
+        
         $pokemonImage = 
-        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'.$getRandNumber.'.png';
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
+        .$getRandNumber.'.png';
 
         return view ('posts.index', ['posts' => $posts, 'pokemon' => $pokemon,
         'pokemonImage' => $pokemonImage]);
