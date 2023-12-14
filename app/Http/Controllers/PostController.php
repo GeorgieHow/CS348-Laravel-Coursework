@@ -46,10 +46,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-    
         $validatedData = $request->validate([
             'post_title' => 'required|max:255',
             'post_text' => 'required|max:255',
+            'image_uploaded' => 'image|mimes:jpg,png,jpeg|nullable',
         ]);
 
         //tags
@@ -63,9 +63,14 @@ class PostController extends Controller
             }
         }
 
+        if($request->image_uploaded != NULL){
+            $imagePath = $request->file('image_uploaded')->store('posts/images', 'public');;
+        }    
+
         $newPost = new Post;
         $newPost-> post_title = $validatedData['post_title'];
         $newPost-> post_text = $validatedData['post_text'];
+        $newPost-> image_path = $imagePath;
         $newPost-> user_id = $request -> user()->id;
         $newPost-> created_at = now();
         $newPost->save();

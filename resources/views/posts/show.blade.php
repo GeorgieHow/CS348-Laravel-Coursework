@@ -30,6 +30,11 @@
             <li class=" px-4 font-light">{{$post->post_text}} </li>
             <br/>
             <li>
+                @if($post->image_path)
+                <img src="{{ asset('storage/' .$post->image_path) }}" alt="Post Image">
+                @endif
+            </li>
+            <li>
                 <span class="font-medium px-4 text-xl">Tags:</span>
                 @if($post->tags->isEmpty())
                     N/A

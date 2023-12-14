@@ -59,12 +59,17 @@
                                 </li>
                                 <li>{{$post ->post_text}}</li>
                                 <li>
+                                    @if($post->image_path)
+                                    <img src="{{ asset('storage/' .$post->image_path) }}" alt="Post Image">
+                                    @endif
+                                </li>
+                                <li>
                                     <p class="text-right">
                                     <span class="bg-gray-800 rounded shadow-lg">
                                     [Created by {{$post->user->name}} at <span class="italic"> {{$post ->created_at}}</span>]
                                     </span>
                                     </p>
-                            </li>
+                                </li>
                                 </ul>
                             </a>
                         </li>

@@ -27,6 +27,10 @@
                     <p class="px-4 text-xl font-normal text-gray-900 
                     dark:text-white shadow-lg">
                     {{$post ->post_text}} 
+                        @if($post->image_path)
+                        <img src="{{ asset('storage/' .$post->image_path) }}" alt="Post Image">
+                        @endif
+                    
                     [{{$post ->created_at}}]
                     </p>
                 </a>

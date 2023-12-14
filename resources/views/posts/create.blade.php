@@ -9,7 +9,7 @@
         dark:text-white shadow-lg"> Create Post: </p>
 
 
-        <form id="form" method="POST" action = "{{route('posts.store')}}">
+        <form id="form" method="POST" action = "{{route('posts.store')}}" enctype="multipart/form-data">
             @csrf
             <ul>
 
@@ -40,6 +40,12 @@
                 </div>
 
                 <br/>
+
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" name="image_uploaded" id="image" class="form-control">
+                </div>
+
                 <div>
                     &nbsp;
                     <input class="bg-gray-800 rounded px-6 py-2 text-2xl max-w-xs 
