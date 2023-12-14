@@ -65,21 +65,10 @@
         var dropdown = document.getElementById("selectTag");
         var selectedItem = document.getElementById("selectedItem");
         var selectedTagsList = document.getElementById("selectedTags");
-
-        // Get the selected option
         var selectedOption = dropdown.options[dropdown.selectedIndex].text;
 
-        // Add the selected fruit to the array
-        /*selectedTags.push(selectedOption);
-
-        updateSelectedTagsList();*/
         if (selectedTags.indexOf(selectedOption) === -1) {
-                // Add the selected fruit to the array
                 selectedTags.push(selectedOption);
-
-                // Display the selected item
-
-                // Update the list of selected fruits
                 updateSelectedTagsList();
         } else {
                 alert("The selected tag is already added.");
@@ -88,10 +77,7 @@
     }
 
     function removeFromSelectedTags(index) {
-            // Remove the selected fruit from the array
             selectedTags.splice(index, 1);
-
-            // Update the list of selected fruits
             updateSelectedTagsList();
         }
 
@@ -99,7 +85,6 @@
             var selectedTagsList = document.getElementById("selectedTags");
             selectedTagsList.innerHTML = "";
 
-            // Update the list of selected fruits
             selectedTags.forEach(function (tag, index) {
                 var listItem = document.createElement("li");
                 listItem.classList.add('pl-8', 'px-6', 'text-xl', 
@@ -107,7 +92,7 @@
                 listItem.textContent = tag;
 
                 listItem.appendChild(document.createTextNode(" "));
-                // Add a remove button next to each tag
+
                 var removeButton = document.createElement("button");
                 removeButton.classList.add('bg-gray-700', 'rounded', 'shadow-lg');
                 removeButton.textContent = "Remove";
@@ -120,9 +105,6 @@
             });
             
             var dataArrayInput = document.getElementById("tagsInputted");
-
-            // Set the value of the hidden input to the array as a JSON string
             dataArrayInput.value = JSON.stringify(selectedTags);
-
     }
 </script>

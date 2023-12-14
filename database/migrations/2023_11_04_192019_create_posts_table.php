@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('post_title');
             $table->text('post_text');
+            $table->string('image_path')->nullable();
             $table->bigInteger('user_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users')

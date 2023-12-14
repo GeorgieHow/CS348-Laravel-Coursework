@@ -21,10 +21,9 @@ class PostController extends Controller
         $getRandNumber = rand(1,897);
         $response = 
         Http::get('https://pokeapi.co/api/v2/pokemon/'. $getRandNumber );
-
-        //Gets image for the pokemon
         $pokemon = $response->json();
-        
+        //return dd($pokemon);
+        //Pokemon Image
         $pokemonImage = 
         'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
         .$getRandNumber.'.png';
