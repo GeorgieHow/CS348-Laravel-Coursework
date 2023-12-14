@@ -13,6 +13,17 @@
         dark:text-white ">Email: {{$user->email}} </li>
         <li class="text-xl font-medium text-gray-900 
         dark:text-white ">Bio/Information: {{$user->profile->profile_bio}}</li>
+        <li class="text-xl font-medium text-gray-900 
+        dark:text-white">Roles:
+        @if(count($user->getRoleNames()) > 1)
+            @foreach($roles = $user->getRoleNames() as $role)
+                &nbsp; {{$role}} 
+            @endforeach
+        @else
+            {{$user->getRoleNames()->first()}}
+        @endif
+        </li>
+
     </ul>
 
     <ul>
@@ -53,7 +64,7 @@
                 </a>
             </div>
             </li>
-        </br>
+        <br/>
         @endforeach
     </ul>
     <p class="px-4"><a href="{{route('posts.index')}}">
