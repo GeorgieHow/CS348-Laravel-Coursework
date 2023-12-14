@@ -41,7 +41,7 @@
 
                 <br/>
 
-                <div class="form-group">
+                <div class="form-group px-6 py-4 text-2xl max-w-xs font-medium text-gray-900 dark:text-white ">
                     <label for="image">Image</label>
                     <input type="file" name="image_uploaded" id="image" class="form-control">
                 </div>
